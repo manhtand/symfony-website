@@ -1,0 +1,95 @@
+$background-color: #2f2f2f;
+$text-color: white;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $background-color;
+
+  &.d-flex {
+    a {
+      color: gray;
+      svg {
+        fill: $text-color;
+      }
+      span {
+        color: $text-color;
+      }
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+
+  .nav-link {
+    position: relative;
+
+    &::after {
+      content: '';
+      height: 2px;
+      width: 100%;
+      background: $text-color;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+footer {
+  .text-body-secondary {
+    color: $text-color !important;
+  }
+}
+
+main {
+  padding-top: 80px;
+}
+
+.card {
+  --bs-card-bg: #3f3f3f;
+  color: $text-color;
+  .text-body-secondary {
+    color: $text-color !important;
+  }
+}
+
+.table {
+  --bs-table-bg: $background-color;
+
+  th {
+    color: white;
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: $background-color;
+      }
+
+      &:nth-child(odd) {
+        background-color: #3f3f3f;
+      }
+
+      td {
+        color: $text-color;
+      }
+    }
+  }
+}

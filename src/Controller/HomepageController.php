@@ -18,11 +18,13 @@ class HomepageController extends AbstractController
     private PlayerService $playerService;
     private TeamService $teamService;
     private EntityManagerInterface $entityManager;
+    private $famousPlayers = [];
 
     public function __construct(PlayerService $playerService, TeamService $teamService, EntityManagerInterface $entityManager) {
         $this->entityManager = $entityManager;
         $this->teamService = $teamService;
         $this->playerService = $playerService;
+        $this->createPopularPlayerArray();
     }
 
     #[Route('/', name: 'homepage')]
@@ -96,21 +98,8 @@ class HomepageController extends AbstractController
      */
     public function getPlayer(): Player
     {
-        $famousPlayers = [];
-        $famousPlayers[] = ['first_name' => 'LeBron', 'last_name' => 'James'];
-        $famousPlayers[] = ['first_name' => 'Stephen', 'last_name' => 'Curry'];
-        $famousPlayers[] = ['first_name' => 'Luka', 'last_name' => 'Doncic'];
-        $famousPlayers[] = ['first_name' => 'Kyrie', 'last_name' => 'Irving'];
-        $famousPlayers[] = ['first_name' => 'Nikola', 'last_name' => 'Jokic'];
-        $famousPlayers[] = ['first_name' => 'Anthony', 'last_name' => 'Davis'];
-        $famousPlayers[] = ['first_name' => 'Giannis', 'last_name' => 'Antetokounmpo'];
-        $famousPlayers[] = ['first_name' => 'Jayson', 'last_name' => 'Tatum'];
-        $famousPlayers[] = ['first_name' => 'Kevin', 'last_name' => 'Durant'];
-        $famousPlayers[] = ['first_name' => 'James', 'last_name' => 'Harden'];
-        $famousPlayers[] = ['first_name' => 'Russell', 'last_name' => 'Westbrook'];
-
         $playerRepository = $this->entityManager->getRepository(Player::class);
-        $randomPlayer = $famousPlayers[array_rand($famousPlayers)];
+        $randomPlayer = $this->famousPlayers[array_rand($this->famousPlayers)];
         $player = $this->getPlayerWithName($randomPlayer['first_name'], $randomPlayer['last_name'], $playerRepository);
         dump($player);
 
@@ -138,7 +127,21 @@ class HomepageController extends AbstractController
         }
 
         $this->entityManager->flush();
-        $teams = $teamRepository->findAll();
-        return $teams;
+        return $teamRepository->findAll();
+    }
+
+    private function createPopularPlayerArray() {
+        $this->famousPlayers = [];
+        $this->famousPlayers[] = ['first_name' => 'LeBron', 'last_name' => 'James'];
+        $this->famousPlayers[] = ['first_name' => 'Stephen', 'last_name' => 'Curry'];
+        $this->famousPlayers[] = ['first_name' => 'Luka', 'last_name' => 'Doncic'];
+        $this->famousPlayers[] = ['first_name' => 'Kyrie', 'last_name' => 'Irving'];
+        $this->famousPlayers[] = ['first_name' => 'Nikola', 'last_name' => 'Jokic'];
+        $this->famousPlayers[] = ['first_name' => 'Anthony', 'last_name' => 'Davis'];
+        $this->famousPlayers[] = ['first_name' => 'Giannis', 'last_name' => 'Antetokounmpo'];
+        $this->famousPlayers[] = ['first_name' => 'Jayson', 'last_name' => 'Tatum'];
+        $this->famousPlayers[] = ['first_name' => 'Kevin', 'last_name' => 'Durant'];
+        $this->famousPlayers[] = ['first_name' => 'James', 'last_name' => 'Harden'];
+        $this->famousPlayers[] = ['first_name' => 'Russell', 'last_name' => 'Westbrook'];
     }
 }

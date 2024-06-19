@@ -22,13 +22,6 @@ function createGraph() {
         let labels = Object.keys(seasonAverageData);
         let data = Object.values(seasonAverageData);
 
-        let existingChart = Chart.getChart('myChart');
-        if (existingChart) {
-            existingChart.destroy();
-        } else {
-            console.log("Cant find");
-        }
-
         new Chart(ctx, {
             type: 'bar',
             data: {
@@ -50,4 +43,14 @@ function createGraph() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', createGraph);
+function destroyGraph() {
+    let existingChart = Chart.getChart('myChart');
+    if (existingChart) {
+        existingChart.destroy(); // Destroy the existing chart if it exists
+        console.log("Destroy");
+    } else {
+        console.log("Cant find");
+    }
+}
+
+window.onload = createGraph();
