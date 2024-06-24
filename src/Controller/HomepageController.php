@@ -130,7 +130,8 @@ class HomepageController extends AbstractController
         return $teamRepository->findAll();
     }
 
-    private function createPopularPlayerArray() {
+    private function createPopularPlayerArray(): void
+    {
         $this->famousPlayers = [];
         $this->famousPlayers[] = ['first_name' => 'LeBron', 'last_name' => 'James'];
         $this->famousPlayers[] = ['first_name' => 'Stephen', 'last_name' => 'Curry'];
