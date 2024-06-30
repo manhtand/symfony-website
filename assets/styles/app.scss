@@ -1,5 +1,5 @@
 $background-color: #2f2f2f;
-$text-color: white;
+$text-color: #ffffff;
 
 body {
   background-color: $background-color;
@@ -74,7 +74,7 @@ main {
   --bs-table-bg: $background-color;
 
   th {
-    color: white;
+    color: $text-color;
   }
 
   tbody {
@@ -95,9 +95,17 @@ main {
 }
 
 .form-label {
-  color: black;
+  color: $text-color;
 }
 
 .modal-title {
   color: black;
+}
+
+span.text-body-secondary {
+  color: #cccccc !important;
+}
+
+small.text-body-secondary {
+  color: #cccccc !important;
 }

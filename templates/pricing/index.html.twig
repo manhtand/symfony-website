@@ -17,7 +17,7 @@
                             <li>{{ benefit.name }}</li>
                         {% endfor %}
                     </ul>
-                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary" onclick="addToCart('{{ pricing_plan.name }}', '{{ pricing_plan.price }}')">Add to cart</button>
                 </div>
             </div>
         </div>
@@ -52,4 +52,9 @@
             </tbody>
         </table>
     </div>
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('js/pricing.js') }}"></script>
 {% endblock %}

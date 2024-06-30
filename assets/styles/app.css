@@ -1,6 +1,6 @@
 body {
   background-color: #2f2f2f;
-  color: white;
+  color: #ffffff;
 }
 
 header {
@@ -15,13 +15,13 @@ header.d-flex a {
   color: gray;
 }
 header.d-flex a svg {
-  fill: white;
+  fill: #ffffff;
 }
 header.d-flex a span {
-  color: white;
+  color: #ffffff;
 }
 header.d-flex a:hover {
-  color: white;
+  color: #ffffff;
 }
 header .nav-link {
   position: relative;
@@ -30,7 +30,7 @@ header .nav-link::after {
   content: "";
   height: 2px;
   width: 100%;
-  background: white;
+  background: #ffffff;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -43,7 +43,7 @@ header .nav-link:hover::after {
 }
 
 footer .text-body-secondary {
-  color: white !important;
+  color: #ffffff !important;
 }
 
 main {
@@ -52,17 +52,17 @@ main {
 
 .card {
   --bs-card-bg: #3f3f3f;
-  color: white;
+  color: #ffffff;
 }
 .card .text-body-secondary {
-  color: white !important;
+  color: #ffffff !important;
 }
 
 .table {
   --bs-table-bg: $background-color;
 }
 .table th {
-  color: white;
+  color: #ffffff;
 }
 .table tbody tr:nth-child(even) {
   background-color: #2f2f2f;
@@ -71,15 +71,23 @@ main {
   background-color: #3f3f3f;
 }
 .table tbody tr td {
-  color: white;
+  color: #ffffff;
 }
 
 .form-label {
-  color: black;
+  color: #ffffff;
 }
 
 .modal-title {
   color: black;
+}
+
+span.text-body-secondary {
+  color: #cccccc !important;
+}
+
+small.text-body-secondary {
+  color: #cccccc !important;
 }
 
 /*# sourceMappingURL=app.css.map */

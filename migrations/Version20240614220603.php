@@ -30,9 +30,10 @@ final class Version20240614220603 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
 //        $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP SEQUENCE season_average_id_seq CASCADE');
+//        $this->addSql('DROP SEQUENCE season_average_id_seq CASCADE');
 //        $this->addSql('DROP SEQUENCE team_id_seq CASCADE');
         $this->addSql('DROP TABLE season_average');
         $this->addSql('DROP TABLE team');
+        $this->addSql('DROP CONSTRAINT ');
     }
 }
